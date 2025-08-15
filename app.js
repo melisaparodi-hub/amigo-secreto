@@ -1,4 +1,6 @@
 let amigos = [];
+const elementoLista = document.querySelector("#listaAmigos");
+
 
 function agregarAmigo() {
   let nombresValorInput = document.getElementById("amigo").value;
@@ -7,24 +9,23 @@ function agregarAmigo() {
     amigos.push(nombresValorInput);
     limpiarCaja();
     crearElementoLista();
-  } else {
+  }
+  else {
     alert("Por favor, inserte un nombre.");
   }
   return;
 }
 
 function limpiarCaja() {
-  document.querySelector("input").value = "";
+  document.getElementById("amigo").value = "";
 }
 
-let elementoLista = document.querySelector("#listaAmigos");
 
 function limpiarLista() {
   elementoLista.innerHTML = "";
 }
 
 function crearElementoLista() {
-  let elementoLista = document.querySelector("#listaAmigos");
   limpiarLista();
   for (let i = 0; i < amigos.length; i++) {
     const elementoLi = document.createElement("li");
@@ -49,6 +50,14 @@ function sortearAmigo() {
   resultado.innerHTML = "";
   resultado.appendChild(elementoLi2);
 
+}
+
+function reiniciarJuego() {
+  amigos.length = 0;
+  document.getElementById("amigo").value = "";
+  elementoLista.innerHTML = "";
+  resultado.innerHTML = "";
+  alert("El juego se ha reiniciado. ¡Agregá nuevos amigos!");
 }
 
 
